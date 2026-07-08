@@ -3,14 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The July Plan — Cyclades 2026</title>
+<title>The July Plan — Santorini ✕ Mykonos 2026</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@500;700;800&family=Albert+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
 <style>
 :root{
   --plaster:#F5F1E9; --deep:#0A3D91; --sea:#1173D4; --sky:#79C4F2;
-  --sun:#F2B33D; --terra:#D96C47; --ink:#12203B; --white:#FFFFFF;
+  --sun:#F2B33D; --terra:#D96C47; --ink:#12203B; --white:#FFFFFF; --green:#1E9E6A;
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -18,21 +18,16 @@ body{background:var(--plaster);color:var(--ink);font-family:'Albert Sans',sans-s
 .wrap{max-width:1120px;margin:0 auto;padding:0 28px}
 h1,h2,h3,h4{font-family:'Syne',sans-serif}
 a{color:var(--sea)}
-/* route visibility */
-body[data-route="a"] [data-route="b"]{display:none !important}
-body[data-route="b"] [data-route="a"]{display:none !important}
 /* ---------- hero ---------- */
 .hero{background:linear-gradient(178deg,var(--deep) 0%,var(--sea) 55%,var(--sky) 100%);color:var(--white);position:relative;overflow:hidden;border-radius:0 0 48px 48px}
 .hero .wrap{padding:56px 28px 0}
 .hero-top{display:flex;justify-content:space-between;font-size:12px;letter-spacing:.18em;text-transform:uppercase;opacity:.85;flex-wrap:wrap;gap:8px;position:relative;z-index:2}
 .hero h1{font-weight:800;font-size:clamp(46px,8.6vw,120px);line-height:.92;letter-spacing:-.03em;text-transform:uppercase;margin-top:36px;position:relative;z-index:1}
 .hero h1 .x{color:var(--sun)}
-.hero .sub{max-width:560px;margin:24px 0 0;font-size:19px;opacity:.94;position:relative;z-index:1}
+.hero .sub{max-width:580px;margin:24px 0 0;font-size:19px;opacity:.94;position:relative;z-index:1}
 .sun{position:absolute;top:52px;right:6%;width:150px;height:150px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#FFD98A,var(--sun));box-shadow:0 0 90px rgba(242,179,61,.65);animation:float 7s ease-in-out infinite}
 @keyframes float{50%{transform:translateY(14px)}}
-.switch{display:inline-flex;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.35);border-radius:99px;padding:5px;margin-top:34px;position:relative;z-index:2;backdrop-filter:blur(6px)}
-.switch button{font-family:'Syne',sans-serif;font-weight:700;font-size:13px;letter-spacing:.08em;text-transform:uppercase;border:none;background:transparent;color:var(--white);padding:11px 22px;border-radius:99px;cursor:pointer;transition:all .25s}
-.switch button.on{background:var(--sun);color:var(--ink)}
+.booked-chip{display:inline-flex;align-items:center;gap:8px;background:var(--green);color:var(--white);font-family:'Syne',sans-serif;font-weight:700;font-size:13px;letter-spacing:.08em;text-transform:uppercase;padding:11px 22px;border-radius:99px;margin-top:34px;position:relative;z-index:2;box-shadow:0 6px 20px rgba(0,0,0,.2)}
 .hero-stats{display:flex;gap:0;background:rgba(255,255,255,.1);backdrop-filter:blur(6px);border-radius:24px 24px 0 0;margin-top:44px;flex-wrap:wrap;position:relative;z-index:1}
 .hstat{flex:1;min-width:140px;padding:22px 24px;border-right:1px solid rgba(255,255,255,.18)}
 .hstat:last-child{border-right:none}
@@ -46,6 +41,7 @@ body[data-route="b"] [data-route="a"]{display:none !important}
 /* ---------- sections ---------- */
 section{padding:80px 0 30px}
 .tagline{display:inline-block;background:var(--sun);color:var(--ink);font-family:'Syne',sans-serif;font-weight:700;font-size:12px;letter-spacing:.16em;text-transform:uppercase;padding:7px 16px;border-radius:99px;margin-bottom:20px}
+.tagline.green{background:var(--green);color:var(--white)}
 h2{font-weight:800;font-size:clamp(34px,5.5vw,60px);text-transform:uppercase;letter-spacing:-.015em;line-height:1;margin-bottom:14px}
 .lede{max-width:620px;color:#44506B;margin-bottom:44px}
 /* ---------- journey cards ---------- */
@@ -64,6 +60,7 @@ h2{font-weight:800;font-size:clamp(34px,5.5vw,60px);text-transform:uppercase;let
 .arches{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;margin-bottom:26px}
 .arch{background:var(--white);border-radius:160px 160px 28px 28px;padding:0 0 26px;text-align:center;position:relative;border:2px solid transparent;transition:transform .3s,border-color .3s;box-shadow:0 18px 40px rgba(18,32,59,.08);overflow:hidden}
 .arch:hover{transform:translateY(-8px);border-color:var(--sun)}
+.arch.booked{border-color:var(--green)}
 .gal{position:relative;height:280px}
 .gal-track{display:flex;height:100%;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;-webkit-overflow-scrolling:touch}
 .gal-track::-webkit-scrollbar{display:none}
@@ -72,6 +69,7 @@ h2{font-weight:800;font-size:clamp(34px,5.5vw,60px);text-transform:uppercase;let
 .medal.pick{background:var(--sun);color:var(--ink)}
 .medal.new{background:var(--terra);color:var(--white)}
 .medal.std{background:rgba(255,255,255,.92);color:#5A5340}
+.medal.done{background:var(--green);color:var(--white)}
 .gal-btn{position:absolute;top:50%;transform:translateY(-50%);width:38px;height:38px;border-radius:50%;border:none;background:rgba(255,255,255,.85);color:var(--ink);font-size:17px;font-weight:700;cursor:pointer;z-index:3;display:flex;align-items:center;justify-content:center;transition:background .2s;line-height:1}
 .gal-btn:hover{background:var(--sun)}
 .gal-btn.prev{left:12px}.gal-btn.next{right:12px}
@@ -83,9 +81,19 @@ h2{font-weight:800;font-size:clamp(34px,5.5vw,60px);text-transform:uppercase;let
 .arch .loc{font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:#8A8471;margin:6px 0 12px}
 .arch p{font-size:13.5px;color:#44506B;text-align:center}
 .arch .rate{font-family:'Syne',sans-serif;font-weight:800;font-size:17px;color:var(--deep);margin-top:14px}
+.arch .rate.ok{color:var(--green)}
 .arch .go{display:inline-block;margin-top:13px;background:var(--ink);color:var(--white);text-decoration:none;font-family:'Syne',sans-serif;font-weight:700;font-size:12px;letter-spacing:.1em;text-transform:uppercase;padding:10px 22px;border-radius:99px;transition:background .25s}
 .arch .go:hover{background:var(--sea)}
 .ultra-note{font-size:13.5px;color:#8A8471;font-style:italic;margin-bottom:10px}
+/* booked feature row */
+.booked-row{display:grid;grid-template-columns:1.15fr 1fr;gap:28px;align-items:stretch}
+@media(max-width:820px){.booked-row{grid-template-columns:1fr}}
+.booked-info{background:var(--white);border-radius:28px;padding:38px 34px;box-shadow:0 18px 40px rgba(18,32,59,.08);display:flex;flex-direction:column;justify-content:center}
+.booked-info h3{font-family:'Syne',sans-serif;font-weight:800;font-size:30px;text-transform:uppercase;margin-bottom:6px}
+.booked-info .loc2{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#8A8471;margin-bottom:16px}
+.booked-info p{font-size:15px;color:#44506B;margin-bottom:14px}
+.booked-info .dates{font-family:'Syne',sans-serif;font-weight:800;font-size:19px;color:var(--green)}
+.booked-info .todo{margin-top:18px;background:#FDF4E0;border-radius:16px;padding:14px 18px;font-size:13.5px;color:#6A5320}
 /* ---------- flights ---------- */
 .fl-wrap{background:var(--ink);border-radius:40px;padding:52px 44px;color:var(--plaster)}
 .fl-wrap h2{color:var(--white)}
@@ -99,17 +107,11 @@ h2{font-weight:800;font-size:clamp(34px,5.5vw,60px);text-transform:uppercase;let
 .fl-book{background:var(--sun);color:var(--ink);text-decoration:none;font-family:'Syne',sans-serif;font-weight:700;font-size:12px;letter-spacing:.08em;text-transform:uppercase;padding:11px 20px;border-radius:99px;transition:transform .2s}
 .fl-book:hover{transform:scale(1.06)}
 .fl-note{margin-top:26px;font-size:13.5px;opacity:.75;font-style:italic}
-/* ---------- alternates ---------- */
-.altgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px}
-.altcard{border-radius:28px;padding:32px 28px;background:var(--white);box-shadow:0 14px 34px rgba(18,32,59,.07);border-top:8px solid var(--sea)}
-.altcard.t2{border-top-color:var(--sun)}
-.altcard.t3{border-top-color:var(--terra)}
-.altcard h4{font-weight:800;font-size:20px;text-transform:uppercase;margin-bottom:10px}
-.altcard p{font-size:14px;color:#44506B}
 /* ---------- checklist ---------- */
 .dolist{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
 .do{background:var(--white);border-radius:24px;padding:26px;box-shadow:0 12px 30px rgba(18,32,59,.06)}
 .do .num{width:44px;height:44px;border-radius:50%;background:var(--sun);color:var(--ink);display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-weight:800;font-size:18px;margin-bottom:16px}
+.do .num.ok{background:var(--green);color:var(--white)}
 .do b{font-family:'Syne',sans-serif;display:block;margin-bottom:6px;text-transform:uppercase;font-size:14px;letter-spacing:.04em}
 .do p{font-size:13.5px;color:#44506B}
 footer{margin-top:80px;background:var(--deep);color:var(--white);border-radius:48px 48px 0 0;padding:44px 0;text-align:center}
@@ -118,87 +120,40 @@ footer .small{font-size:12px;letter-spacing:.14em;text-transform:uppercase;opaci
 @media(max-width:640px){.fl-wrap{padding:36px 24px;border-radius:28px}.gal{height:240px}}
 </style>
 </head>
-<body data-route="b">
+<body>
 
 <div class="hero">
   <div class="sun"></div>
   <div class="wrap">
     <div class="hero-top"><span>Kit &amp; Co · Summer 2026</span><span>10 → 16 July</span></div>
-
-    <h1 data-route="a">Paros<span class="x"> ✕ </span><br>Mykonos</h1>
-    <h1 data-route="b">Santorini<span class="x"> ✕ </span><br>Mykonos</h1>
-
-    <p class="sub" data-route="a">No direct flight? No problem. Athens by air, the Cyclades by sea — two nights of Naoussa calm, four nights of Mykonos chaos.</p>
-    <p class="sub" data-route="b">Fly straight onto the caldera, give the sunsets three full nights, then cross to Mykonos for the finale. The postcard, then the party.</p>
-
-    <div class="switch" role="tablist" aria-label="Route selector">
-      <button id="btn-b" onclick="setRoute('b')">Santorini first</button>
-      <button id="btn-a" onclick="setRoute('a')">Paros first</button>
-    </div>
-
-    <div class="hero-stats" data-route="a">
-      <div class="hstat"><div class="n">6</div><div class="l">Days</div></div>
-      <div class="hstat"><div class="n">2 + 4</div><div class="l">Nights split</div></div>
-      <div class="hstat"><div class="n">35 min</div><div class="l">Island hop</div></div>
-      <div class="hstat"><div class="n" style="font-size:19px;line-height:1.9">£600–950</div><div class="l">Air + sea, 2 pax</div></div>
-      <div class="hstat"><div class="n">10</div><div class="l">Hotel options</div></div>
-    </div>
-    <div class="hero-stats" data-route="b">
+    <h1>Santorini<span class="x"> ✕ </span><br>Mykonos</h1>
+    <p class="sub">Three caldera sunsets, then cross to Mykonos for the finale. The Mykonos half is locked — Cavo Tagoo, 13th to 16th. Santorini is the last call to make.</p>
+    <div class="booked-chip">✓ Cavo Tagoo booked · 13–16 July</div>
+    <div class="hero-stats">
       <div class="hstat"><div class="n">6</div><div class="l">Days</div></div>
       <div class="hstat"><div class="n">3 + 3</div><div class="l">Nights split</div></div>
       <div class="hstat"><div class="n">2h 10</div><div class="l">Caldera → Chora</div></div>
       <div class="hstat"><div class="n" style="font-size:19px;line-height:1.9">£680–1,090</div><div class="l">Air + sea, 2 pax</div></div>
-      <div class="hstat"><div class="n">12</div><div class="l">Hotel options</div></div>
+      <div class="hstat"><div class="n" style="color:#8CF2C3">Booked ✓</div><div class="l">Cavo Tagoo, Mykonos</div></div>
     </div>
   </div>
 </div>
 
-<div class="marquee" data-route="a"><span>
-  LGW 05:50 <b>→</b> ATHENS 11:30 <b>→</b> RAFINA 14:20 <b>→</b> PAROS 17:55 <b>✕</b> SUNDAY 11:45 <b>→</b> MYKONOS 12:20 <b>✕</b> THURSDAY 21:35 <b>→</b> LUTON 23:25 <b>✕</b>
-  LGW 05:50 <b>→</b> ATHENS 11:30 <b>→</b> RAFINA 14:20 <b>→</b> PAROS 17:55 <b>✕</b> SUNDAY 11:45 <b>→</b> MYKONOS 12:20 <b>✕</b> THURSDAY 21:35 <b>→</b> LUTON 23:25 <b>✕</b>
-</span></div>
-<div class="marquee" data-route="b"><span>
-  LGW 07:35 <b>→</b> SANTORINI 13:30 <b>✕</b> THREE CALDERA SUNSETS <b>✕</b> MONDAY 12:55 <b>→</b> MYKONOS 15:05 <b>✕</b> THURSDAY 21:35 <b>→</b> LUTON 23:25 <b>✕</b>
-  LGW 07:35 <b>→</b> SANTORINI 13:30 <b>✕</b> THREE CALDERA SUNSETS <b>✕</b> MONDAY 12:55 <b>→</b> MYKONOS 15:05 <b>✕</b> THURSDAY 21:35 <b>→</b> LUTON 23:25 <b>✕</b>
+<div class="marquee"><span>
+  LGW 07:35 <b>→</b> SANTORINI 13:30 <b>✕</b> THREE CALDERA SUNSETS <b>✕</b> MONDAY 12:55 <b>→</b> MYKONOS 15:05 <b>✕</b> CAVO TAGOO 13–16 <b>✕</b> THURSDAY 21:35 <b>→</b> LUTON 23:25 <b>✕</b>
+  LGW 07:35 <b>→</b> SANTORINI 13:30 <b>✕</b> THREE CALDERA SUNSETS <b>✕</b> MONDAY 12:55 <b>→</b> MYKONOS 15:05 <b>✕</b> CAVO TAGOO 13–16 <b>✕</b> THURSDAY 21:35 <b>→</b> LUTON 23:25 <b>✕</b>
 </span></div>
 
 <section>
   <div class="wrap">
     <span class="tagline">The Route</span>
     <h2>Six days,<br>zero wasted hours</h2>
-    <p class="lede" data-route="a">Mykonos has no Friday direct, so Athens becomes the front door and the ferry becomes the scenic part. Every connection has a fallback.</p>
-    <p class="lede" data-route="b">One flight, one ferry. Santorini takes easyJet direct from Gatwick on the Friday — and three nights clears every caldera hotel's peak-season minimum stay.</p>
+    <p class="lede">One flight, one ferry, and the Mykonos bed already has your name on it. Santorini takes easyJet direct from Gatwick on the Friday — three nights clears every caldera hotel's peak-season minimum stay.</p>
 
-    <div class="journey" data-route="a">
-      <div class="jcard jc1">
-        <div class="day">Fri 10 · Fly + Sail</div>
-        <p>easyJet LGW 05:50 → Athens 11:30. Taxi to Rafina, SeaJets 14:20 → Paros 17:55. Sunset spritz in Naoussa.</p>
-        <a class="link" href="https://www.easyjet.com/en/buy/flights" target="_blank">Book easyJet →</a>
-      </div>
-      <div class="jcard jc2">
-        <div class="day">Sat 11 · Paros</div>
-        <p>Kolympethres beach by day, Naoussa's old harbour by night. The chic warm-up island.</p>
-      </div>
-      <div class="jcard jc3">
-        <div class="day">Sun 12 · The Hop</div>
-        <p>SeaJets 11:45 → Mykonos 12:20. Thirty-five minutes. Hotel transfer waiting at the New Port. Lunch poolside.</p>
-        <a class="link" href="https://www.ferryhopper.com/en/ferry-routes/direct/paros-mykonos" target="_blank">Book ferry →</a>
-      </div>
-      <div class="jcard jc4">
-        <div class="day">Mon–Wed · Mykonos</div>
-        <p>Scorpios. Nammos. Chora at golden hour. A boat day if the meltemi allows. The main event.</p>
-      </div>
-      <div class="jcard jc5">
-        <div class="day">Thu 16 · Home</div>
-        <p>Full last day, then Wizz 21:35 → Luton 23:25 for £88 total. Or easyJet 14:35 → Gatwick if you'd rather land in daylight.</p>
-        <a class="link" href="https://wizzair.com" target="_blank">Book Wizz →</a>
-      </div>
-    </div>
-
-    <div class="journey" data-route="b">
+    <div class="journey">
       <div class="jcard jc1">
         <div class="day">Fri 10 · Fly Direct</div>
-        <p>easyJet LGW 07:35 → Santorini 13:30, £475 for two. Transfer up to Oia, on a caldera terrace by 15:00. Sunset No.1.</p>
+        <p>easyJet LGW 07:35 → Santorini 13:30, £475 for two. Transfer up to the caldera, on a terrace by 15:00. Sunset No.1.</p>
         <a class="link" href="https://www.easyjet.com/en/buy/flights" target="_blank">Book easyJet →</a>
       </div>
       <div class="jcard jc2">
@@ -211,94 +166,51 @@ footer .small{font-size:12px;letter-spacing:.14em;text-transform:uppercase;opaci
       </div>
       <div class="jcard jc4">
         <div class="day">Mon 13 · The Crossing</div>
-        <p>SeaJets 12:55 → Mykonos 15:05 (2h 10m). Golden Star 14:15 as backup. Hotel transfer at the New Port — beach club by five.</p>
+        <p>SeaJets 12:55 → Mykonos 15:05 (2h 10m). Golden Star 14:15 as backup. Cavo Tagoo pickup at the New Port — check-in and that pool by late afternoon.</p>
         <a class="link" href="https://www.ferryhopper.com/en/ferry-routes/direct/santorini-to-mykonos" target="_blank">Book ferry →</a>
       </div>
       <div class="jcard jc5">
         <div class="day">Tue–Thu · Mykonos</div>
-        <p>Three nights: Scorpios, Nammos, Chora at golden hour. Thursday's a full day — Wizz 21:35 → Luton for £88, or easyJet 14:35 → Gatwick.</p>
+        <p>Scorpios, Nammos, Chora at golden hour — Town is a 20-minute waterfront walk from Cavo Tagoo. Thursday's a full day: Wizz 21:35 → Luton for £88.</p>
         <a class="link" href="https://wizzair.com" target="_blank">Book Wizz →</a>
       </div>
     </div>
   </div>
 </section>
 
-<section data-route="a">
+<section>
   <div class="wrap">
-    <span class="tagline">Sleep · Paros</span>
-    <h2>Two nights, Naoussa</h2>
-    <p class="lede">Four in the $500–1,200 band. Swipe the photos. Peak-July Fridays can carry minimum-stay rules — one call confirms.</p>
-    <div class="arches">
-      <div class="arch">
-        <div class="gal"><span class="medal pick">★ The Pick</span>
-          <div class="gal-track">
-            <img src="img/par-avantmar-1.jpg" alt="Avant Mar pool terrace at dusk" loading="lazy">
-            <img src="img/par-avantmar-2.jpg" alt="Avant Mar aerial over Piperi Beach" loading="lazy">
-            <img src="img/par-avantmar-3.jpg" alt="Avant Mar gardens and sea" loading="lazy">
+    <span class="tagline green">Booked · Mykonos</span>
+    <h2>Cavo Tagoo ✓</h2>
+    <p class="lede">Done and confirmed: three nights, 13–16 July. The famous one — the cave pool with the aquarium bar, golden-hour terraces over the bay, 20 minutes on foot into Town.</p>
+    <div class="booked-row">
+      <div class="arch booked" style="border-radius:36px;padding-bottom:0">
+        <div class="gal" style="height:100%;min-height:340px"><span class="medal done">✓ Confirmed · 13–16 July</span>
+          <div class="gal-track" style="border-radius:36px">
+            <img src="img/myk-cavotagoo-1.jpg" alt="Cavo Tagoo Mykonos" loading="lazy">
+            <img src="img/myk-cavotagoo-2.jpg" alt="Cavo Tagoo pool" loading="lazy">
+            <img src="img/myk-cavotagoo-3.jpg" alt="Cavo Tagoo suite" loading="lazy">
+            <img src="img/myk-cavotagoo-4.jpg" alt="Cavo Tagoo terrace" loading="lazy">
           </div>
-        </div>
-        <div class="arch-body">
-          <h4>Avant Mar</h4><div class="loc">Piperi Beach · LHW · walk to Naoussa</div>
-          <p>On the sand a stroll from the harbour, 55m infinity pool, Nobu's Matsuhisa in-house. Entry suites now confirmed in band.</p>
-          <div class="rate">$623–1,020 / night</div>
-          <a class="go" href="https://www.avantmar.com" target="_blank">Visit site</a>
         </div>
       </div>
-      <div class="arch">
-        <div class="gal"><span class="medal new">New · June '26</span>
-          <div class="gal-track">
-            <img src="img/par-orosea-1.jpg" alt="Oroséa suite terrace with private pool" loading="lazy">
-            <img src="img/par-orosea-2.jpg" alt="Oroséa rooftop plunge pools" loading="lazy">
-            <img src="img/par-orosea-3.jpg" alt="Oroséa suite bedroom" loading="lazy">
-          </div>
-        </div>
-        <div class="arch-body">
-          <h4>Oroséa</h4><div class="loc">Above Naoussa · Autograph · adults-only</div>
-          <p>Opened three weeks ago: 40 suites, every one with a private pool. Nobody's grid has it yet — be first.</p>
-          <div class="rate">$728–1,192 / night</div>
-          <a class="go" href="https://www.oroseaparos.com" target="_blank">Visit site</a>
-        </div>
-      </div>
-      <div class="arch">
-        <div class="gal"><span class="medal std">Design Icon</span>
-          <div class="gal-track">
-            <img src="img/par-parilio-1.jpg" alt="Parīlio cross-shaped pool" loading="lazy">
-            <img src="img/par-parilio-2.jpg" alt="Parīlio Sun Suite private pool" loading="lazy">
-            <img src="img/par-parilio-3.jpg" alt="Kolympithres beach near Parīlio" loading="lazy">
-          </div>
-        </div>
-        <div class="arch-body">
-          <h4>Parīlio</h4><div class="loc">Kolympithres · Design Hotels</div>
-          <p>Arched monastic minimalism and the island's most photographed pool. Free shuttle to Naoussa.</p>
-          <div class="rate">$760–1,030 / night</div>
-          <a class="go" href="https://pariliohotelparos.com" target="_blank">Visit site</a>
-        </div>
-      </div>
-      <div class="arch">
-        <div class="gal"><span class="medal std">Value Play</span>
-          <div class="gal-track">
-            <img src="img/par-parocks-1.jpg" alt="Parocks cliff and sea panorama" loading="lazy">
-            <img src="img/par-parocks-2.jpg" alt="Parocks suite terrace plunge pool" loading="lazy">
-            <img src="img/par-parocks-3.jpg" alt="Parocks sunset infinity pool dining" loading="lazy">
-          </div>
-        </div>
-        <div class="arch-body">
-          <h4>Parocks</h4><div class="loc">Ambelas clifftop · Mr &amp; Mrs Smith</div>
-          <p>Quiet-luxury clifftop facing Naxos, subterranean spa, plunge-pool suites. Best money-to-magic ratio on the island.</p>
-          <div class="rate">≈$760 / night</div>
-          <a class="go" href="https://parockshotel.com" target="_blank">Visit site</a>
-        </div>
+      <div class="booked-info">
+        <h3>Cavo Tagoo</h3>
+        <div class="loc2">Town edge · clifftop over Mykonos bay · adults-favourite icon</div>
+        <p class="dates">Mon 13 → Thu 16 July · 3 nights · booked ✓</p>
+        <p>The most famous pool scene on the island, sunset views over the bay, and close enough to walk the waterfront into Chora for dinner. Nothing left to decide here.</p>
+        <p class="todo"><b>One thing to arrange:</b> tell the hotel you land at the New Port on the Monday ferry (SeaJets 12:55 → 15:05) and book their port transfer — the island has ~30 taxis and they vanish in July.</p>
+        <a class="go" href="https://www.cavotagoo.com/mykonos/" target="_blank" style="align-self:flex-start;margin-top:16px">Hotel site</a>
       </div>
     </div>
-    <p class="ultra-note">Want the ultra tier anyway? <a href="https://cosmehotelparos.com" target="_blank">Cosme</a> runs €1,200–1,500 a night in July.</p>
   </div>
 </section>
 
-<section data-route="b">
+<section>
   <div class="wrap">
-    <span class="tagline">Sleep · Santorini</span>
+    <span class="tagline">The Last Decision · Santorini</span>
     <h2>Three nights on the caldera</h2>
-    <p class="lede">Six in the $500–1,200 band — four on the caldera edge, one winery village, one black-sand beach. Swipe the photos. Three nights clears the peak-season minimums.</p>
+    <p class="lede">The only unbooked bed. Six in the $500–1,200 band — four on the caldera edge, one winery village, one black-sand beach. Swipe the photos. Three nights clears the peak-season minimums.</p>
     <div class="arches">
       <div class="arch">
         <div class="gal"><span class="medal pick">★ The Pick</span>
@@ -397,141 +309,18 @@ footer .small{font-size:12px;letter-spacing:.14em;text-transform:uppercase;opaci
 
 <section>
   <div class="wrap">
-    <span class="tagline">Sleep · Mykonos</span>
-    <h2 data-route="a">Four nights, main event</h2>
-    <h2 data-route="b">Three nights, main event</h2>
-    <p class="lede">Six in the $500–1,200 band — two walkable to Town, four on the beaches. Swipe the photos.</p>
-    <div class="arches">
-      <div class="arch">
-        <div class="gal"><span class="medal pick">★ The Pick</span>
-          <div class="gal-track">
-            <img src="img/myk-katikies-1.jpg" alt="Katikies Mykonos infinity pool" loading="lazy">
-            <img src="img/myk-katikies-2.jpg" alt="Katikies Mykonos superior double" loading="lazy">
-            <img src="img/myk-katikies-3.jpg" alt="Katikies Mykonos master suite pool" loading="lazy">
-          </div>
-        </div>
-        <div class="arch-body">
-          <h4>Katikies</h4><div class="loc">Agios Ioannis · LHW · 10 min to Town</div>
-          <p>The Santorini icon's Mykonos outpost — cave-pool aesthetic, sunset infinity pool, Delos views.</p>
-          <div class="rate">$710–1,130 / night</div>
-          <a class="go" href="https://www.katikies.com/katikiesmykonos/" target="_blank">Visit site</a>
-        </div>
-      </div>
-      <div class="arch">
-        <div class="gal"><span class="medal std">Private Beach</span>
-          <div class="gal-track">
-            <img src="img/myk-santamarina-1.jpg" alt="Santa Marina resort and bay" loading="lazy">
-            <img src="img/myk-santamarina-2.jpg" alt="Santa Marina pool" loading="lazy">
-            <img src="img/myk-santamarina-3.jpg" alt="Santa Marina villa" loading="lazy">
-          </div>
-        </div>
-        <div class="arch-body">
-          <h4>Santa Marina</h4><div class="loc">Ornos peninsula · Luxury Collection</div>
-          <p>The only resort on the island with its own private sandy beach, plus Buddha-Bar Beach. Bonvoy applies.</p>
-          <div class="rate">from $657 / night</div>
-          <a class="go" href="https://www.marriott.com/en-us/hotels/jmklc-santa-marina-a-luxury-collection-resort-mykonos/overview/" target="_blank">Book now</a>
-        </div>
-      </div>
-      <div class="arch">
-        <div class="gal"><span class="medal std">Town · Adults Only</span>
-          <div class="gal-track">
-            <img src="img/myk-boheme-1.jpg" alt="Boheme Mykonos pool" loading="lazy">
-            <img src="img/myk-boheme-2.jpg" alt="Boheme suite" loading="lazy">
-            <img src="img/myk-boheme-3.jpg" alt="Boheme grounds" loading="lazy">
-          </div>
-        </div>
-        <div class="arch-body">
-          <h4>Boheme</h4><div class="loc">Rochari · 5-min walk to Town · SLH</div>
-          <p>Adults-only bohemian design hotel with a cult pool-bar scene. Walk down to Chora, retreat from the noise.</p>
-          <div class="rate">$580–630 / night</div>
-          <a class="go" href="https://bohememykonos.com" target="_blank">Visit site</a>
-        </div>
-      </div>
-      <div class="arch">
-        <div class="gal"><span class="medal std">Taste / Seclusion</span>
-          <div class="gal-track">
-            <img src="img/myk-wild-1.jpg" alt="The Wild Hotel cliffside" loading="lazy">
-            <img src="img/myk-wild-2.jpg" alt="The Wild Hotel view" loading="lazy">
-            <img src="img/myk-wild-3.jpg" alt="The Wild hidden bay" loading="lazy">
-          </div>
-        </div>
-        <div class="arch-body">
-          <h4>The Wild</h4><div class="loc">Agia Anna · hidden cove · Michelin Guide</div>
-          <p>Interni's boho-luxe clifftop above its own pebble cove. The anti-Mykonos Mykonos hotel.</p>
-          <div class="rate">$670–1,200 / night</div>
-          <a class="go" href="https://thewildhotel.com" target="_blank">Visit site</a>
-        </div>
-      </div>
-      <div class="arch">
-        <div class="gal"><span class="medal std">Beachfront</span>
-          <div class="gal-track">
-            <img src="img/myk-branco-1.jpg" alt="Branco Mykonos beach panorama" loading="lazy">
-            <img src="img/myk-branco-2.jpg" alt="Branco beach club" loading="lazy">
-            <img src="img/myk-branco-3.jpg" alt="Branco on Platis Gialos" loading="lazy">
-          </div>
-        </div>
-        <div class="arch-body">
-          <h4>Branco</h4><div class="loc">Platis Gialos · on the sand</div>
-          <p>All-white design hotel directly on the beach with its own club; boat taxis to Paraga and Paradise from the sand.</p>
-          <div class="rate">$500–800 / night</div>
-          <a class="go" href="https://www.brancomykonos.com" target="_blank">Visit site</a>
-        </div>
-      </div>
-      <div class="arch">
-        <div class="gal"><span class="medal std">Town Grande Dame</span>
-          <div class="gal-track">
-            <img src="img/myk-belvedere-1.jpg" alt="Belvedere pool scene" loading="lazy">
-            <img src="img/myk-belvedere-2.jpg" alt="Belvedere grounds" loading="lazy">
-            <img src="img/myk-belvedere-3.jpg" alt="Belvedere suite" loading="lazy">
-          </div>
-        </div>
-        <div class="arch-body">
-          <h4>Belvedere</h4><div class="loc">Town · 3-min walk to Chora · LHW</div>
-          <p>1850s captain's mansion grounds, famous pool, Matsuhisa on site. The best walk-everywhere base in the band.</p>
-          <div class="rate">$550–850 / night</div>
-          <a class="go" href="https://www.belvederehotel.com" target="_blank">Visit site</a>
-        </div>
-      </div>
-    </div>
-    <p class="ultra-note">Want the ultra tier anyway? <a href="https://www.kalesmamykonos.com" target="_blank">Kalesma</a> and the new <a href="https://www.hotelsbarriere.com/en/collection-fouquet-s/mykonos" target="_blank">Fouquet's</a> run €1,500–3,000.</p>
-  </div>
-</section>
-
-<section>
-  <div class="wrap">
     <div class="fl-wrap">
       <span class="tagline">The Numbers</span>
       <h2>Flights &amp; ferries</h2>
       <div style="margin-top:30px">
-        <div data-route="a">
-          <div class="fl-row"><span class="fl-when">Fri 10</span><div class="fl-what"><b>easyJet · Gatwick → Athens</b><span>05:50 → 11:30 · the one to book</span></div><span class="fl-price">£347</span><a class="fl-book" href="https://www.easyjet.com/en/buy/flights" target="_blank">Book</a></div>
-          <div class="fl-row"><span class="fl-when">Fri 10</span><div class="fl-what"><b>SeaJets · Rafina → Paros</b><span>14:20 → 17:55 · sells out — book tonight</span></div><span class="fl-price">≈€78</span><a class="fl-book" href="https://www.ferryhopper.com/en/ferry-routes/direct/rafina-paros" target="_blank">Book</a></div>
-          <div class="fl-row"><span class="fl-when">Sun 12</span><div class="fl-what"><b>SeaJets · Paros → Mykonos</b><span>11:45 → 12:20 · 35 minutes</span></div><span class="fl-price">≈€72</span><a class="fl-book" href="https://www.ferryhopper.com/en/ferry-routes/direct/paros-mykonos" target="_blank">Book</a></div>
-        </div>
-        <div data-route="b">
-          <div class="fl-row"><span class="fl-when">Fri 10</span><div class="fl-what"><b>easyJet · Gatwick → Santorini</b><span>07:35 → 13:30 · direct, the one to book</span></div><span class="fl-price">£475</span><a class="fl-book" href="https://www.easyjet.com/en/buy/flights" target="_blank">Book</a></div>
-          <div class="fl-row"><span class="fl-when">Fri 10</span><div class="fl-what"><b>BA · Heathrow → Santorini</b><span>08:15 → 14:05 · the Heathrow option</span></div><span class="fl-price">£583</span><a class="fl-book" href="https://www.britishairways.com" target="_blank">Book</a></div>
-          <div class="fl-row"><span class="fl-when">Mon 13</span><div class="fl-what"><b>SeaJets · Santorini → Mykonos</b><span>12:55 → 15:05 · Golden Star 14:15 backup</span></div><span class="fl-price">≈€120</span><a class="fl-book" href="https://www.ferryhopper.com/en/ferry-routes/direct/santorini-to-mykonos" target="_blank">Book</a></div>
-        </div>
+        <div class="fl-row"><span class="fl-when">Fri 10</span><div class="fl-what"><b>easyJet · Gatwick → Santorini</b><span>07:35 → 13:30 · direct, the one to book</span></div><span class="fl-price">£475</span><a class="fl-book" href="https://www.easyjet.com/en/buy/flights" target="_blank">Book</a></div>
+        <div class="fl-row"><span class="fl-when">Fri 10</span><div class="fl-what"><b>BA · Heathrow → Santorini</b><span>08:15 → 14:05 · the Heathrow option</span></div><span class="fl-price">£583</span><a class="fl-book" href="https://www.britishairways.com" target="_blank">Book</a></div>
+        <div class="fl-row"><span class="fl-when">Mon 13</span><div class="fl-what"><b>SeaJets · Santorini → Mykonos</b><span>12:55 → 15:05 · lands in time for Cavo Tagoo check-in · Golden Star 14:15 backup</span></div><span class="fl-price">≈€120</span><a class="fl-book" href="https://www.ferryhopper.com/en/ferry-routes/direct/santorini-to-mykonos" target="_blank">Book</a></div>
         <div class="fl-row"><span class="fl-when">Thu 16</span><div class="fl-what"><b>Wizz Air · Mykonos → Luton</b><span>21:35 → 23:25 · full last day</span></div><span class="fl-price">£88</span><a class="fl-book" href="https://wizzair.com" target="_blank">Book</a></div>
         <div class="fl-row"><span class="fl-when">Thu 16</span><div class="fl-what"><b>easyJet · Mykonos → Gatwick</b><span>14:35 → 16:40 · the daylight option</span></div><span class="fl-price">£148</span><a class="fl-book" href="https://www.easyjet.com/en/buy/flights" target="_blank">Book</a></div>
         <div class="fl-row"><span class="fl-when">Thu 16</span><div class="fl-what"><b>British Airways · Mykonos → Heathrow</b><span>13:40 or 16:25 · or 33,500 Avios + £2 for two</span></div><span class="fl-price">£437</span><a class="fl-book" href="https://www.britishairways.com" target="_blank">Book</a></div>
       </div>
-      <p class="fl-note">All prices = total for two adults, captured live 8 July 2026. Hotel rates are per night, indicative for mid-July, and move daily — links go to each hotel's own site.</p>
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="wrap">
-    <span class="tagline">Plan B</span>
-    <h2>The other doors</h2>
-    <p class="lede">Every serious alternative was researched. Naxos, Milos and the Athens Riviera didn't make the cut.</p>
-    <div class="altgrid">
-      <div class="altcard" data-route="b"><h4>Paros instead</h4><p>The original plan — flip the switch up top. Two nights of Naoussa calm via Athens + ferry, and a 35-minute Sunday hop to Mykonos. Cheaper, chiller, less iconic.</p></div>
-      <div class="altcard" data-route="a"><h4>Santorini instead</h4><p>The postcard — flip the switch up top. Direct flight Friday, three caldera sunsets, and the 3-night stay clears every hotel minimum. Costs more, photographs better.</p></div>
-      <div class="altcard t2"><h4>Tinos</h4><p>The dark horse. Odera — new Autograph Collection, 54 pool suites, a third of Santorini's prices — and Mykonos is a 15-minute ferry away. Zero-stress option.</p></div>
-      <div class="altcard t3"><h4>The Avios play</h4><p>BA Mykonos runs 16,750 Avios + £1 each way per person in peak. 33,500 + £2 for two beats any summer cash fare — check reward space before paying cash for BA legs.</p></div>
+      <p class="fl-note">All prices = total for two adults, captured live 8 July 2026. Hotel rates are per night, indicative for mid-July — links go to each hotel's own site.</p>
     </div>
   </div>
 </section>
@@ -542,36 +331,20 @@ footer .small{font-size:12px;letter-spacing:.14em;text-transform:uppercase;opaci
     <h2>Four moves</h2>
     <p class="lede" style="margin-bottom:36px">Departure is tomorrow morning. Order matters.</p>
     <div class="dolist">
-      <div class="do"><div class="num">1</div><b>Lock the flights</b>
-        <p data-route="a">easyJet to Athens (£347), Wizz home (£88). Fares are volatile this close in.</p>
-        <p data-route="b">easyJet direct to Santorini (£475), Wizz home (£88). Fares are volatile this close in.</p>
-      </div>
-      <div class="do"><div class="num">2</div><b>Lock the ferries</b>
-        <p data-route="a">SeaJets Rafina 14:20 Friday + Paros 11:45 Sunday. Mid-July boats go first.</p>
-        <p data-route="b">SeaJets Santorini → Mykonos, Monday 12:55. Mid-July boats sell out weeks ahead — book it with the flights.</p>
-      </div>
-      <div class="do"><div class="num">3</div><b>Call the hotels</b>
-        <p data-route="a">Avant Mar first (entry suites in band), Oroséa second. Parocks is the instant-value fallback.</p>
-        <p data-route="b">Astra Suites and Katikies Mykonos first. Vedema and Santa Marina book instantly via Marriott if the phones don't move.</p>
-      </div>
-      <div class="do"><div class="num">4</div><b>Book the transfer</b><p>Hotel pickup from Mykonos New Port, arranged with the room. ~30 taxis on the island. Not a typo.</p></div>
+      <div class="do"><div class="num">1</div><b>Lock the flights</b><p>easyJet direct to Santorini 07:35 (£475), Wizz home Thursday 21:35 (£88). Fares are volatile this close in.</p></div>
+      <div class="do"><div class="num">2</div><b>Lock the ferry</b><p>SeaJets Santorini → Mykonos, Monday 12:55. Mid-July boats sell out weeks ahead — book it with the flights.</p></div>
+      <div class="do"><div class="num">3</div><b>Book Santorini</b><p>The last bed. Astra Suites first, West East or Ikies if it's full — Vedema books instantly via Marriott.</p></div>
+      <div class="do"><div class="num ok">✓</div><b>Mykonos — done</b><p>Cavo Tagoo confirmed 13–16. Just tell them your Monday ferry and arrange the New Port pickup.</p></div>
     </div>
   </div>
 </section>
 
 <footer>
   <div class="big">Καλό ταξίδι ✕</div>
-  <div class="small">Researched by a fleet of agents · 16 hotels · 48 photos · prices move — book tonight</div>
+  <div class="small">Cavo Tagoo locked · one bed left to book · prices move — book tonight</div>
 </footer>
 
 <script>
-function setRoute(r){
-  document.body.setAttribute('data-route', r);
-  document.getElementById('btn-a').classList.toggle('on', r==='a');
-  document.getElementById('btn-b').classList.toggle('on', r==='b');
-}
-setRoute('b');
-
 // galleries: arrows + dots for every .gal
 document.querySelectorAll('.gal').forEach(gal=>{
   const track = gal.querySelector('.gal-track');
