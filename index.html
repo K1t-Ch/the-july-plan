@@ -30,7 +30,6 @@ body[data-route="b"] [data-route="a"]{display:none !important}
 .hero .sub{max-width:560px;margin:24px 0 0;font-size:19px;opacity:.94;position:relative;z-index:1}
 .sun{position:absolute;top:52px;right:6%;width:150px;height:150px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#FFD98A,var(--sun));box-shadow:0 0 90px rgba(242,179,61,.65);animation:float 7s ease-in-out infinite}
 @keyframes float{50%{transform:translateY(14px)}}
-/* route switch */
 .switch{display:inline-flex;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.35);border-radius:99px;padding:5px;margin-top:34px;position:relative;z-index:2;backdrop-filter:blur(6px)}
 .switch button{font-family:'Syne',sans-serif;font-weight:700;font-size:13px;letter-spacing:.08em;text-transform:uppercase;border:none;background:transparent;color:var(--white);padding:11px 22px;border-radius:99px;cursor:pointer;transition:all .25s}
 .switch button.on{background:var(--sun);color:var(--ink)}
@@ -61,20 +60,32 @@ h2{font-weight:800;font-size:clamp(34px,5.5vw,60px);text-transform:uppercase;let
 .jc3{background:var(--sun);color:var(--ink)}.jc3 .link{color:var(--deep)}
 .jc4{background:var(--terra);color:var(--white)}.jc4 .link{color:#FFE3B8}
 .jc5{background:var(--ink);color:var(--white)}.jc5 .link{color:var(--sun)}
-/* ---------- hotels: arch cards ---------- */
-.arches{display:grid;grid-template-columns:repeat(auto-fit,minmax(255px,1fr));gap:22px;margin-bottom:26px}
-.arch{background:var(--white);border-radius:160px 160px 28px 28px;padding:54px 26px 28px;text-align:center;position:relative;border:2px solid transparent;transition:transform .3s,border-color .3s;box-shadow:0 18px 40px rgba(18,32,59,.08)}
+/* ---------- hotels: arch cards with galleries ---------- */
+.arches{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;margin-bottom:26px}
+.arch{background:var(--white);border-radius:160px 160px 28px 28px;padding:0 0 26px;text-align:center;position:relative;border:2px solid transparent;transition:transform .3s,border-color .3s;box-shadow:0 18px 40px rgba(18,32,59,.08);overflow:hidden}
 .arch:hover{transform:translateY(-8px);border-color:var(--sun)}
-.arch .medal{position:absolute;top:20px;left:50%;transform:translateX(-50%);font-size:10.5px;font-family:'Syne',sans-serif;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:5px 14px;border-radius:99px;white-space:nowrap}
+.gal{position:relative;height:280px}
+.gal-track{display:flex;height:100%;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.gal-track::-webkit-scrollbar{display:none}
+.gal-track img{flex:0 0 100%;width:100%;height:100%;object-fit:cover;scroll-snap-align:start;scroll-snap-stop:always}
+.gal .medal{position:absolute;top:18px;left:50%;transform:translateX(-50%);font-size:10.5px;font-family:'Syne',sans-serif;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:6px 15px;border-radius:99px;white-space:nowrap;z-index:3;box-shadow:0 4px 14px rgba(18,32,59,.25)}
 .medal.pick{background:var(--sun);color:var(--ink)}
 .medal.new{background:var(--terra);color:var(--white)}
-.medal.std{background:#E8E2D4;color:#6A6350}
-.arch h4{font-weight:800;font-size:22px;text-transform:uppercase;letter-spacing:-.01em;margin-top:14px}
-.arch .loc{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#8A8471;margin:6px 0 14px}
+.medal.std{background:rgba(255,255,255,.92);color:#5A5340}
+.gal-btn{position:absolute;top:50%;transform:translateY(-50%);width:38px;height:38px;border-radius:50%;border:none;background:rgba(255,255,255,.85);color:var(--ink);font-size:17px;font-weight:700;cursor:pointer;z-index:3;display:flex;align-items:center;justify-content:center;transition:background .2s;line-height:1}
+.gal-btn:hover{background:var(--sun)}
+.gal-btn.prev{left:12px}.gal-btn.next{right:12px}
+.gal-dots{position:absolute;bottom:12px;left:0;right:0;display:flex;justify-content:center;gap:6px;z-index:3}
+.gal-dots i{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.55);transition:all .2s}
+.gal-dots i.on{background:var(--white);transform:scale(1.35)}
+.arch-body{padding:22px 26px 0}
+.arch h4{font-weight:800;font-size:21px;text-transform:uppercase;letter-spacing:-.01em}
+.arch .loc{font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:#8A8471;margin:6px 0 12px}
 .arch p{font-size:13.5px;color:#44506B;text-align:center}
-.arch .rate{font-family:'Syne',sans-serif;font-weight:800;font-size:17px;color:var(--deep);margin-top:16px}
-.arch .go{display:inline-block;margin-top:14px;background:var(--ink);color:var(--white);text-decoration:none;font-family:'Syne',sans-serif;font-weight:700;font-size:12px;letter-spacing:.1em;text-transform:uppercase;padding:10px 22px;border-radius:99px;transition:background .25s}
+.arch .rate{font-family:'Syne',sans-serif;font-weight:800;font-size:17px;color:var(--deep);margin-top:14px}
+.arch .go{display:inline-block;margin-top:13px;background:var(--ink);color:var(--white);text-decoration:none;font-family:'Syne',sans-serif;font-weight:700;font-size:12px;letter-spacing:.1em;text-transform:uppercase;padding:10px 22px;border-radius:99px;transition:background .25s}
 .arch .go:hover{background:var(--sea)}
+.ultra-note{font-size:13.5px;color:#8A8471;font-style:italic;margin-bottom:10px}
 /* ---------- flights ---------- */
 .fl-wrap{background:var(--ink);border-radius:40px;padding:52px 44px;color:var(--plaster)}
 .fl-wrap h2{color:var(--white)}
@@ -104,7 +115,7 @@ h2{font-weight:800;font-size:clamp(34px,5.5vw,60px);text-transform:uppercase;let
 footer{margin-top:80px;background:var(--deep);color:var(--white);border-radius:48px 48px 0 0;padding:44px 0;text-align:center}
 footer .big{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(22px,4vw,38px);text-transform:uppercase}
 footer .small{font-size:12px;letter-spacing:.14em;text-transform:uppercase;opacity:.7;margin-top:10px}
-@media(max-width:640px){.fl-wrap{padding:36px 24px;border-radius:28px}}
+@media(max-width:640px){.fl-wrap{padding:36px 24px;border-radius:28px}.gal{height:240px}}
 </style>
 </head>
 <body data-route="b">
@@ -130,14 +141,14 @@ footer .small{font-size:12px;letter-spacing:.14em;text-transform:uppercase;opaci
       <div class="hstat"><div class="n">2 + 4</div><div class="l">Nights split</div></div>
       <div class="hstat"><div class="n">35 min</div><div class="l">Island hop</div></div>
       <div class="hstat"><div class="n" style="font-size:19px;line-height:1.9">£600–950</div><div class="l">Air + sea, 2 pax</div></div>
-      <div class="hstat"><div class="n">8</div><div class="l">Five-star options</div></div>
+      <div class="hstat"><div class="n">10</div><div class="l">Hotel options</div></div>
     </div>
     <div class="hero-stats" data-route="b">
       <div class="hstat"><div class="n">6</div><div class="l">Days</div></div>
       <div class="hstat"><div class="n">3 + 3</div><div class="l">Nights split</div></div>
       <div class="hstat"><div class="n">2h 10</div><div class="l">Caldera → Chora</div></div>
       <div class="hstat"><div class="n" style="font-size:19px;line-height:1.9">£680–1,090</div><div class="l">Air + sea, 2 pax</div></div>
-      <div class="hstat"><div class="n">1</div><div class="l">Flight, no Athens</div></div>
+      <div class="hstat"><div class="n">12</div><div class="l">Hotel options</div></div>
     </div>
   </div>
 </div>
@@ -216,30 +227,70 @@ footer .small{font-size:12px;letter-spacing:.14em;text-transform:uppercase;opaci
   <div class="wrap">
     <span class="tagline">Sleep · Paros</span>
     <h2>Two nights, Naoussa</h2>
-    <p class="lede">Peak-July Fridays can carry minimum-stay rules — Avant Mar needs a call; Cosme books instantly on Marriott.</p>
+    <p class="lede">Four in the $500–1,200 band. Swipe the photos. Peak-July Fridays can carry minimum-stay rules — one call confirms.</p>
     <div class="arches">
       <div class="arch">
-        <span class="medal pick">★ The Pick</span>
-        <h4>Avant Mar</h4><div class="loc">Piperi Beach · LHW</div>
-        <p>Private-pool suites on the sand, a 55-metre infinity pool, and Nobu's Matsuhisa in-house. Stumble home from Naoussa along the beach.</p>
-        <div class="rate">€1.8–2.2K / night</div>
-        <a class="go" href="https://www.avantmar.com" target="_blank">Visit site</a>
+        <div class="gal"><span class="medal pick">★ The Pick</span>
+          <div class="gal-track">
+            <img src="img/par-avantmar-1.jpg" alt="Avant Mar pool terrace at dusk" loading="lazy">
+            <img src="img/par-avantmar-2.jpg" alt="Avant Mar aerial over Piperi Beach" loading="lazy">
+            <img src="img/par-avantmar-3.jpg" alt="Avant Mar gardens and sea" loading="lazy">
+          </div>
+        </div>
+        <div class="arch-body">
+          <h4>Avant Mar</h4><div class="loc">Piperi Beach · LHW · walk to Naoussa</div>
+          <p>On the sand a stroll from the harbour, 55m infinity pool, Nobu's Matsuhisa in-house. Entry suites now confirmed in band.</p>
+          <div class="rate">$623–1,020 / night</div>
+          <a class="go" href="https://www.avantmar.com" target="_blank">Visit site</a>
+        </div>
       </div>
       <div class="arch">
-        <span class="medal std">Safe Bet</span>
-        <h4>Cosme</h4><div class="loc">Naoussa · Luxury Collection</div>
-        <p>Beachfront, 8 minutes on foot to town, half-moon infinity pool, stone spa. Two nights book cleanly via Marriott.</p>
-        <div class="rate">€1.15K / night</div>
-        <a class="go" href="https://www.marriott.com/en-us/hotels/paslc-cosme-a-luxury-collection-resort-paros/overview/" target="_blank">Book now</a>
+        <div class="gal"><span class="medal new">New · June '26</span>
+          <div class="gal-track">
+            <img src="img/par-orosea-1.jpg" alt="Oroséa suite terrace with private pool" loading="lazy">
+            <img src="img/par-orosea-2.jpg" alt="Oroséa rooftop plunge pools" loading="lazy">
+            <img src="img/par-orosea-3.jpg" alt="Oroséa suite bedroom" loading="lazy">
+          </div>
+        </div>
+        <div class="arch-body">
+          <h4>Oroséa</h4><div class="loc">Above Naoussa · Autograph · adults-only</div>
+          <p>Opened three weeks ago: 40 suites, every one with a private pool. Nobody's grid has it yet — be first.</p>
+          <div class="rate">$728–1,192 / night</div>
+          <a class="go" href="https://www.oroseaparos.com" target="_blank">Visit site</a>
+        </div>
       </div>
       <div class="arch">
-        <span class="medal new">New · June '26</span>
-        <h4>Oroséa</h4><div class="loc">Above Naoussa · Autograph</div>
-        <p>Adults-only, 40 suites, every single one with a private pool. Opened three weeks ago — be first.</p>
-        <div class="rate">€0.9–1.4K / night</div>
-        <a class="go" href="https://www.oroseaparos.com" target="_blank">Visit site</a>
+        <div class="gal"><span class="medal std">Design Icon</span>
+          <div class="gal-track">
+            <img src="img/par-parilio-1.jpg" alt="Parīlio cross-shaped pool" loading="lazy">
+            <img src="img/par-parilio-2.jpg" alt="Parīlio Sun Suite private pool" loading="lazy">
+            <img src="img/par-parilio-3.jpg" alt="Kolympithres beach near Parīlio" loading="lazy">
+          </div>
+        </div>
+        <div class="arch-body">
+          <h4>Parīlio</h4><div class="loc">Kolympithres · Design Hotels</div>
+          <p>Arched monastic minimalism and the island's most photographed pool. Free shuttle to Naoussa.</p>
+          <div class="rate">$760–1,030 / night</div>
+          <a class="go" href="https://pariliohotelparos.com" target="_blank">Visit site</a>
+        </div>
+      </div>
+      <div class="arch">
+        <div class="gal"><span class="medal std">Value Play</span>
+          <div class="gal-track">
+            <img src="img/par-parocks-1.jpg" alt="Parocks cliff and sea panorama" loading="lazy">
+            <img src="img/par-parocks-2.jpg" alt="Parocks suite terrace plunge pool" loading="lazy">
+            <img src="img/par-parocks-3.jpg" alt="Parocks sunset infinity pool dining" loading="lazy">
+          </div>
+        </div>
+        <div class="arch-body">
+          <h4>Parocks</h4><div class="loc">Ambelas clifftop · Mr &amp; Mrs Smith</div>
+          <p>Quiet-luxury clifftop facing Naxos, subterranean spa, plunge-pool suites. Best money-to-magic ratio on the island.</p>
+          <div class="rate">≈$760 / night</div>
+          <a class="go" href="https://parockshotel.com" target="_blank">Visit site</a>
+        </div>
       </div>
     </div>
+    <p class="ultra-note">Want the ultra tier anyway? <a href="https://cosmehotelparos.com" target="_blank">Cosme</a> runs €1,200–1,500 a night in July.</p>
   </div>
 </section>
 
@@ -247,31 +298,100 @@ footer .small{font-size:12px;letter-spacing:.14em;text-transform:uppercase;opaci
   <div class="wrap">
     <span class="tagline">Sleep · Santorini</span>
     <h2>Three nights on the caldera</h2>
-    <p class="lede">This is why the 3-night version works: peak-July caldera hotels want 3-night stays — your dates now qualify for all of them. Every one of these is in or beside Oia.</p>
+    <p class="lede">Six in the $500–1,200 band — four on the caldera edge, one winery village, one black-sand beach. Swipe the photos. Three nights clears the peak-season minimums.</p>
     <div class="arches">
       <div class="arch">
-        <span class="medal pick">★ The Pick</span>
-        <h4>Canaves Oia</h4><div class="loc">Oia · Epitome &amp; Suites</div>
-        <p>Carved into the caldera cliff, plunge-pool suites facing the sunset, and the polish that made it the island's benchmark.</p>
-        <div class="rate">≈€1.3–1.7K / night</div>
-        <a class="go" href="https://canaves.com" target="_blank">Visit site</a>
+        <div class="gal"><span class="medal pick">★ The Pick</span>
+          <div class="gal-track">
+            <img src="img/san-astra-1.jpg" alt="Astra Suites pool over the caldera" loading="lazy">
+            <img src="img/san-astra-2.jpg" alt="Astra Suites cliffside" loading="lazy">
+            <img src="img/san-astra-3.jpg" alt="Astra Suites terrace view" loading="lazy">
+          </div>
+        </div>
+        <div class="arch-body">
+          <h4>Astra Suites</h4><div class="loc">Imerovigli · caldera edge</div>
+          <p>Cave suites carved into the cliff, legendary service, full sunset views — five-star soul without ultra-tier pricing.</p>
+          <div class="rate">$640–1,080 / night</div>
+          <a class="go" href="https://www.astrasuites.com" target="_blank">Visit site</a>
+        </div>
       </div>
       <div class="arch">
-        <span class="medal std">The Icon</span>
-        <h4>Grace</h4><div class="loc">Imerovigli · Auberge</div>
-        <p>That infinity pool — the most photographed in Greece — hanging 300m above the caldera at the quiet end of the cliff walk.</p>
-        <div class="rate">≈€1.5–2K+ / night</div>
-        <a class="go" href="https://aubergeresorts.com/gracesantorini" target="_blank">Visit site</a>
+        <div class="gal"><span class="medal std">Adults Only</span>
+          <div class="gal-track">
+            <img src="img/san-chromata-1.jpg" alt="Katikies Chromata caldera view" loading="lazy">
+            <img src="img/san-chromata-2.jpg" alt="Chromata pool" loading="lazy">
+            <img src="img/san-chromata-3.jpg" alt="Chromata suite" loading="lazy">
+          </div>
+        </div>
+        <div class="arch-body">
+          <h4>Chromata</h4><div class="loc">Imerovigli · Katikies group · LHW</div>
+          <p>Design-forward, adults-only, 180° caldera views and a Michelin-starred chef's restaurant on site.</p>
+          <div class="rate">≈$800 avg / night</div>
+          <a class="go" href="https://www.katikies.com/chromatasantorini/" target="_blank">Visit site</a>
+        </div>
       </div>
       <div class="arch">
-        <span class="medal std">Books Clean</span>
-        <h4>Mystique</h4><div class="loc">Oia · Luxury Collection</div>
-        <p>Cave-style suites in weathered-timber tones on the Oia cliffs. Marriott inventory — three nights book instantly, points count.</p>
-        <div class="rate">≈€1.2–1.8K / night</div>
-        <a class="go" href="https://www.marriott.com/en-us/hotels/jtrlc-mystique-a-luxury-collection-hotel-santorini/overview/" target="_blank">Book now</a>
+        <div class="gal"><span class="medal std">Hidden Oia</span>
+          <div class="gal-track">
+            <img src="img/san-ikies-1.jpg" alt="Ikies caldera terrace" loading="lazy">
+            <img src="img/san-ikies-2.jpg" alt="Ikies cave house exterior" loading="lazy">
+            <img src="img/san-ikies-3.jpg" alt="Ikies honeymoon suite" loading="lazy">
+          </div>
+        </div>
+        <div class="arch-body">
+          <h4>Ikies</h4><div class="loc">Oia east edge · 13 cave houses</div>
+          <p>The intimate insider's Oia: converted cave houses with the same postcard view at half Canaves money.</p>
+          <div class="rate">$540–820 / night</div>
+          <a class="go" href="https://ikies.com" target="_blank">Visit site</a>
+        </div>
+      </div>
+      <div class="arch">
+        <div class="gal"><span class="medal std">Design Buy</span>
+          <div class="gal-track">
+            <img src="img/san-westeast-1.jpg" alt="West East Suites cliff path" loading="lazy">
+            <img src="img/san-westeast-2.jpg" alt="West East suite with plunge pool" loading="lazy">
+            <img src="img/san-westeast-3.jpg" alt="West East restaurant" loading="lazy">
+          </div>
+        </div>
+        <div class="arch-body">
+          <h4>West East Suites</h4><div class="loc">Imerovigli · adults-only · 16 suites</div>
+          <p>Sleek Cycladic-modern hideaway with private plunge pools — the best quality-for-money five-star on the caldera.</p>
+          <div class="rate">$510–950 / night</div>
+          <a class="go" href="https://www.westeastsuites.com" target="_blank">Visit site</a>
+        </div>
+      </div>
+      <div class="arch">
+        <div class="gal"><span class="medal std">Points Play</span>
+          <div class="gal-track">
+            <img src="img/san-vedema-1.jpg" alt="Vedema resort overview" loading="lazy">
+            <img src="img/san-vedema-2.jpg" alt="Vedema village lanes" loading="lazy">
+            <img src="img/san-vedema-3.jpg" alt="Vedema Alati restaurant" loading="lazy">
+          </div>
+        </div>
+        <div class="arch-body">
+          <h4>Vedema</h4><div class="loc">Megalochori · Luxury Collection</div>
+          <p>Resort built around a 15th-century winery in a quiet vineyard village. Big rooms, Bonvoy points, zero caldera crowds.</p>
+          <div class="rate">$600–930 / night</div>
+          <a class="go" href="https://vedema.gr" target="_blank">Visit site</a>
+        </div>
+      </div>
+      <div class="arch">
+        <div class="gal"><span class="medal std">Beach Option</span>
+          <div class="gal-track">
+            <img src="img/san-istoria-1.jpg" alt="Istoria infinity pool" loading="lazy">
+            <img src="img/san-istoria-2.jpg" alt="Istoria entrance" loading="lazy">
+            <img src="img/san-istoria-3.jpg" alt="Istoria Tarina suite" loading="lazy">
+          </div>
+        </div>
+        <div class="arch-body">
+          <h4>Istoria</h4><div class="loc">Perivolos · black-sand beach · Design Hotels</div>
+          <p>Twelve earthy suites right on the black sand with Mr.E restaurant — the barefoot counterweight to the caldera.</p>
+          <div class="rate">$700–980 / night</div>
+          <a class="go" href="https://istoriahotel.gr" target="_blank">Visit site</a>
+        </div>
       </div>
     </div>
-    <p class="lede" style="margin-top:6px">Also shortlisted: <a href="https://www.katikies.com" target="_blank">Katikies Oia</a> and <a href="https://www.andronis.com" target="_blank">Andronis Luxury Suites</a> — same tier, same cliffs, worth checking if the three above are full.</p>
+    <p class="ultra-note">Want the ultra tier anyway? <a href="https://canaves.com" target="_blank">Canaves Oia</a>, <a href="https://aubergeresorts.com/gracesantorini" target="_blank">Grace</a> and <a href="https://www.marriott.com/en-us/hotels/jtrlc-mystique-a-luxury-collection-hotel-santorini/overview/" target="_blank">Mystique</a> run €1,300–2,000+.</p>
   </div>
 </section>
 
@@ -280,45 +400,100 @@ footer .small{font-size:12px;letter-spacing:.14em;text-transform:uppercase;opaci
     <span class="tagline">Sleep · Mykonos</span>
     <h2 data-route="a">Four nights, main event</h2>
     <h2 data-route="b">Three nights, main event</h2>
-    <p class="lede">Two of these opened in the last two weeks. Your dates land inside their debut month — that's a story.</p>
+    <p class="lede">Six in the $500–1,200 band — two walkable to Town, four on the beaches. Swipe the photos.</p>
     <div class="arches">
       <div class="arch">
-        <span class="medal pick">★ The Pick</span>
-        <h4>Kalesma</h4><div class="loc">Aleomandra · 10 min to Town</div>
-        <p>27 suites, all with private heated infinity pools. Rick Owens interiors. Seclusion with Town transfers included.</p>
-        <div class="rate" data-route="a">€7–10K the stay</div>
-        <div class="rate" data-route="b">€5–7.5K the stay</div>
-        <a class="go" href="https://www.kalesmamykonos.com" target="_blank">Visit site</a>
+        <div class="gal"><span class="medal pick">★ The Pick</span>
+          <div class="gal-track">
+            <img src="img/myk-katikies-1.jpg" alt="Katikies Mykonos infinity pool" loading="lazy">
+            <img src="img/myk-katikies-2.jpg" alt="Katikies Mykonos superior double" loading="lazy">
+            <img src="img/myk-katikies-3.jpg" alt="Katikies Mykonos master suite pool" loading="lazy">
+          </div>
+        </div>
+        <div class="arch-body">
+          <h4>Katikies</h4><div class="loc">Agios Ioannis · LHW · 10 min to Town</div>
+          <p>The Santorini icon's Mykonos outpost — cave-pool aesthetic, sunset infinity pool, Delos views.</p>
+          <div class="rate">$710–1,130 / night</div>
+          <a class="go" href="https://www.katikies.com/katikiesmykonos/" target="_blank">Visit site</a>
+        </div>
       </div>
       <div class="arch">
-        <span class="medal new">New · 27 June</span>
-        <h4>Fouquet's</h4><div class="loc">Paraga · walk to Scorpios</div>
-        <p>Barrière's Greek debut: Roka restaurant, Barbara Sturm spa, hyperbaric chamber, the island's only indoor pool.</p>
-        <div class="rate">€1.5–3K / night</div>
-        <a class="go" href="https://www.hotelsbarriere.com/en/collection-fouquet-s/mykonos" target="_blank">Visit site</a>
+        <div class="gal"><span class="medal std">Private Beach</span>
+          <div class="gal-track">
+            <img src="img/myk-santamarina-1.jpg" alt="Santa Marina resort and bay" loading="lazy">
+            <img src="img/myk-santamarina-2.jpg" alt="Santa Marina pool" loading="lazy">
+            <img src="img/myk-santamarina-3.jpg" alt="Santa Marina villa" loading="lazy">
+          </div>
+        </div>
+        <div class="arch-body">
+          <h4>Santa Marina</h4><div class="loc">Ornos peninsula · Luxury Collection</div>
+          <p>The only resort on the island with its own private sandy beach, plus Buddha-Bar Beach. Bonvoy applies.</p>
+          <div class="rate">from $657 / night</div>
+          <a class="go" href="https://www.marriott.com/en-us/hotels/jmklc-santa-marina-a-luxury-collection-resort-mykonos/overview/" target="_blank">Book now</a>
+        </div>
       </div>
       <div class="arch">
-        <span class="medal std">Town Access</span>
-        <h4>Bill &amp; Coo</h4><div class="loc">Megali Ammos · walk to Chora</div>
-        <p>Plunge-pool suites 15 minutes on foot from town, and the Gastronomy Project at home. For going out every night.</p>
-        <div class="rate">€1.1–1.8K / night</div>
-        <a class="go" href="https://www.bill-coo-hotel.com" target="_blank">Visit site</a>
+        <div class="gal"><span class="medal std">Town · Adults Only</span>
+          <div class="gal-track">
+            <img src="img/myk-boheme-1.jpg" alt="Boheme Mykonos pool" loading="lazy">
+            <img src="img/myk-boheme-2.jpg" alt="Boheme suite" loading="lazy">
+            <img src="img/myk-boheme-3.jpg" alt="Boheme grounds" loading="lazy">
+          </div>
+        </div>
+        <div class="arch-body">
+          <h4>Boheme</h4><div class="loc">Rochari · 5-min walk to Town · SLH</div>
+          <p>Adults-only bohemian design hotel with a cult pool-bar scene. Walk down to Chora, retreat from the noise.</p>
+          <div class="rate">$580–630 / night</div>
+          <a class="go" href="https://bohememykonos.com" target="_blank">Visit site</a>
+        </div>
       </div>
       <div class="arch">
-        <span class="medal new">New · 26 June</span>
-        <h4>Four Seasons</h4><div class="loc">Kalo Livadi · first in Cyclades</div>
-        <p>15 acres, four restaurants, private beach — and reportedly 70% booked already. The brand-safety flex.</p>
-        <div class="rate">€0.5–3K+ / night</div>
-        <a class="go" href="https://www.fourseasons.com/mykonos/" target="_blank">Visit site</a>
+        <div class="gal"><span class="medal std">Taste / Seclusion</span>
+          <div class="gal-track">
+            <img src="img/myk-wild-1.jpg" alt="The Wild Hotel cliffside" loading="lazy">
+            <img src="img/myk-wild-2.jpg" alt="The Wild Hotel view" loading="lazy">
+            <img src="img/myk-wild-3.jpg" alt="The Wild hidden bay" loading="lazy">
+          </div>
+        </div>
+        <div class="arch-body">
+          <h4>The Wild</h4><div class="loc">Agia Anna · hidden cove · Michelin Guide</div>
+          <p>Interni's boho-luxe clifftop above its own pebble cove. The anti-Mykonos Mykonos hotel.</p>
+          <div class="rate">$670–1,200 / night</div>
+          <a class="go" href="https://thewildhotel.com" target="_blank">Visit site</a>
+        </div>
       </div>
       <div class="arch">
-        <span class="medal std">Taste / Value</span>
-        <h4>The Wild</h4><div class="loc">Agia Anna · quiet coast</div>
-        <p>Interni's bohemian clifftop, private beach below, Michelin Guide listed. The insider's pick at half the price.</p>
-        <div class="rate">€0.8–1.3K / night</div>
-        <a class="go" href="https://thewildhotel.com" target="_blank">Visit site</a>
+        <div class="gal"><span class="medal std">Beachfront</span>
+          <div class="gal-track">
+            <img src="img/myk-branco-1.jpg" alt="Branco Mykonos beach panorama" loading="lazy">
+            <img src="img/myk-branco-2.jpg" alt="Branco beach club" loading="lazy">
+            <img src="img/myk-branco-3.jpg" alt="Branco on Platis Gialos" loading="lazy">
+          </div>
+        </div>
+        <div class="arch-body">
+          <h4>Branco</h4><div class="loc">Platis Gialos · on the sand</div>
+          <p>All-white design hotel directly on the beach with its own club; boat taxis to Paraga and Paradise from the sand.</p>
+          <div class="rate">$500–800 / night</div>
+          <a class="go" href="https://www.brancomykonos.com" target="_blank">Visit site</a>
+        </div>
+      </div>
+      <div class="arch">
+        <div class="gal"><span class="medal std">Town Grande Dame</span>
+          <div class="gal-track">
+            <img src="img/myk-belvedere-1.jpg" alt="Belvedere pool scene" loading="lazy">
+            <img src="img/myk-belvedere-2.jpg" alt="Belvedere grounds" loading="lazy">
+            <img src="img/myk-belvedere-3.jpg" alt="Belvedere suite" loading="lazy">
+          </div>
+        </div>
+        <div class="arch-body">
+          <h4>Belvedere</h4><div class="loc">Town · 3-min walk to Chora · LHW</div>
+          <p>1850s captain's mansion grounds, famous pool, Matsuhisa on site. The best walk-everywhere base in the band.</p>
+          <div class="rate">$550–850 / night</div>
+          <a class="go" href="https://www.belvederehotel.com" target="_blank">Visit site</a>
+        </div>
       </div>
     </div>
+    <p class="ultra-note">Want the ultra tier anyway? <a href="https://www.kalesmamykonos.com" target="_blank">Kalesma</a> and the new <a href="https://www.hotelsbarriere.com/en/collection-fouquet-s/mykonos" target="_blank">Fouquet's</a> run €1,500–3,000.</p>
   </div>
 </section>
 
@@ -342,7 +517,7 @@ footer .small{font-size:12px;letter-spacing:.14em;text-transform:uppercase;opaci
         <div class="fl-row"><span class="fl-when">Thu 16</span><div class="fl-what"><b>easyJet · Mykonos → Gatwick</b><span>14:35 → 16:40 · the daylight option</span></div><span class="fl-price">£148</span><a class="fl-book" href="https://www.easyjet.com/en/buy/flights" target="_blank">Book</a></div>
         <div class="fl-row"><span class="fl-when">Thu 16</span><div class="fl-what"><b>British Airways · Mykonos → Heathrow</b><span>13:40 or 16:25 · or 33,500 Avios + £2 for two</span></div><span class="fl-price">£437</span><a class="fl-book" href="https://www.britishairways.com" target="_blank">Book</a></div>
       </div>
-      <p class="fl-note">All prices = total for two adults, captured live 8 July 2026. They're moving — the cheap BA Friday seats disappeared during research.</p>
+      <p class="fl-note">All prices = total for two adults, captured live 8 July 2026. Hotel rates are per night, indicative for mid-July, and move daily — links go to each hotel's own site.</p>
     </div>
   </div>
 </section>
@@ -353,7 +528,7 @@ footer .small{font-size:12px;letter-spacing:.14em;text-transform:uppercase;opaci
     <h2>The other doors</h2>
     <p class="lede">Every serious alternative was researched. Naxos, Milos and the Athens Riviera didn't make the cut.</p>
     <div class="altgrid">
-      <div class="altcard" data-route="b"><h4>Paros instead</h4><p>The original plan — flip the switch up top. Two nights of Naoussa calm (Avant Mar, Cosme, Oroséa) via Athens + ferry, and a 35-minute Sunday hop to Mykonos. Cheaper, chiller, less iconic.</p></div>
+      <div class="altcard" data-route="b"><h4>Paros instead</h4><p>The original plan — flip the switch up top. Two nights of Naoussa calm via Athens + ferry, and a 35-minute Sunday hop to Mykonos. Cheaper, chiller, less iconic.</p></div>
       <div class="altcard" data-route="a"><h4>Santorini instead</h4><p>The postcard — flip the switch up top. Direct flight Friday, three caldera sunsets, and the 3-night stay clears every hotel minimum. Costs more, photographs better.</p></div>
       <div class="altcard t2"><h4>Tinos</h4><p>The dark horse. Odera — new Autograph Collection, 54 pool suites, a third of Santorini's prices — and Mykonos is a 15-minute ferry away. Zero-stress option.</p></div>
       <div class="altcard t3"><h4>The Avios play</h4><p>BA Mykonos runs 16,750 Avios + £1 each way per person in peak. 33,500 + £2 for two beats any summer cash fare — check reward space before paying cash for BA legs.</p></div>
@@ -365,19 +540,19 @@ footer .small{font-size:12px;letter-spacing:.14em;text-transform:uppercase;opaci
   <div class="wrap">
     <span class="tagline">Do This Tonight</span>
     <h2>Four moves</h2>
-    <p class="lede" style="margin-bottom:36px">Two days out. Order matters.</p>
+    <p class="lede" style="margin-bottom:36px">Departure is tomorrow morning. Order matters.</p>
     <div class="dolist">
       <div class="do"><div class="num">1</div><b>Lock the flights</b>
-        <p data-route="a">easyJet to Athens (£347), Wizz home (£88). Fares are volatile at T-2 days.</p>
-        <p data-route="b">easyJet direct to Santorini (£475), Wizz home (£88). Fares are volatile at T-2 days.</p>
+        <p data-route="a">easyJet to Athens (£347), Wizz home (£88). Fares are volatile this close in.</p>
+        <p data-route="b">easyJet direct to Santorini (£475), Wizz home (£88). Fares are volatile this close in.</p>
       </div>
       <div class="do"><div class="num">2</div><b>Lock the ferries</b>
         <p data-route="a">SeaJets Rafina 14:20 Friday + Paros 11:45 Sunday. Mid-July boats go first.</p>
         <p data-route="b">SeaJets Santorini → Mykonos, Monday 12:55. Mid-July boats sell out weeks ahead — book it with the flights.</p>
       </div>
       <div class="do"><div class="num">3</div><b>Call the hotels</b>
-        <p data-route="a">Avant Mar (2-night question) and Kalesma (availability). Cosme is the instant-book fallback.</p>
-        <p data-route="b">Canaves Oia and Kalesma first. Mystique and Cosme book instantly via Marriott if the phones don't move.</p>
+        <p data-route="a">Avant Mar first (entry suites in band), Oroséa second. Parocks is the instant-value fallback.</p>
+        <p data-route="b">Astra Suites and Katikies Mykonos first. Vedema and Santa Marina book instantly via Marriott if the phones don't move.</p>
       </div>
       <div class="do"><div class="num">4</div><b>Book the transfer</b><p>Hotel pickup from Mykonos New Port, arranged with the room. ~30 taxis on the island. Not a typo.</p></div>
     </div>
@@ -386,7 +561,7 @@ footer .small{font-size:12px;letter-spacing:.14em;text-transform:uppercase;opaci
 
 <footer>
   <div class="big">Καλό ταξίδι ✕</div>
-  <div class="small">Researched by a fleet of agents · verified 8 July 2026 · prices move — book tonight</div>
+  <div class="small">Researched by a fleet of agents · 16 hotels · 48 photos · prices move — book tonight</div>
 </footer>
 
 <script>
@@ -396,6 +571,24 @@ function setRoute(r){
   document.getElementById('btn-b').classList.toggle('on', r==='b');
 }
 setRoute('b');
+
+// galleries: arrows + dots for every .gal
+document.querySelectorAll('.gal').forEach(gal=>{
+  const track = gal.querySelector('.gal-track');
+  const imgs = track.querySelectorAll('img');
+  if(imgs.length < 2) return;
+  const prev = document.createElement('button'); prev.className='gal-btn prev'; prev.innerHTML='&#8249;'; prev.setAttribute('aria-label','Previous photo');
+  const next = document.createElement('button'); next.className='gal-btn next'; next.innerHTML='&#8250;'; next.setAttribute('aria-label','Next photo');
+  const dots = document.createElement('div'); dots.className='gal-dots';
+  imgs.forEach(()=>dots.appendChild(document.createElement('i')));
+  gal.append(prev,next,dots);
+  const dotEls = dots.querySelectorAll('i');
+  const update = ()=>{ const i = Math.round(track.scrollLeft / track.clientWidth); dotEls.forEach((d,k)=>d.classList.toggle('on', k===i)); };
+  update();
+  track.addEventListener('scroll', ()=>requestAnimationFrame(update), {passive:true});
+  prev.addEventListener('click', ()=>track.scrollBy({left:-track.clientWidth, behavior:'smooth'}));
+  next.addEventListener('click', ()=>track.scrollBy({left: track.clientWidth, behavior:'smooth'}));
+});
 </script>
 </body>
 </html>
